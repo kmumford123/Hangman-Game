@@ -2,15 +2,16 @@
 	var correctAnswers = ["wolverine", "Beast", "Professor X", "Ice Man", "Storm", "Cyclops", "Jean Grey", "Colossus"];
 	var clue = ["Adamantium", "Smart Blue", "Mental Baldy", "Cool Breeze", "Ororo Munroe", "Too Hot Too Fly", "Man of Steel"];
 	var ChosenWord = Math.floor(Math.random()*correctAnswers.length);
-	for (var i = 0; i < correctAnswers.length; i++) {
-		console.log(correctAnswers[i]);
-	}
+	// for (var i = 0; i < correctAnswers.length; i++) {
+	// 	console.log(correctAnswers[i]);
+	console.log(correctAnswers.split());
+	// }
 	// var res = correctAnswers.split(correctAnswers[0]);
 	// console.out(res)
 	//Choose a word
-	document.onkeyup = function(event) {
+	// document.onkeyup = function(event) {
 
-	}
+	// }
 
 
 	//mozilla dev network - strings and arrays
