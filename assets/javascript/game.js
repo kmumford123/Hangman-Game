@@ -1,49 +1,81 @@
-// Set up a group of Answers
-	var correctAnswers = ["wolverine", "Beast", "Professor X", "Ice Man", "Storm", "Cyclops", "Jean Grey", "Colossus"];
-	var clue = ["Adamantium", "Smart Blue", "Mental Baldy", "Cool Breeze", "Ororo Munroe", "Too Hot Too Fly", "Man of Steel"];
-	var ChosenWord = Math.floor(Math.random()*correctAnswers.length);
+	// var correctAnswers = ["wolverine", "Beast", "Professor X", "Ice Man", "Storm", "Cyclops", "Jean Grey", "Colossus"];
 	var puzzle = [" "]
 	var guess = "c";
-	var NumberOfGuesses = 0;
-	var	GuessRemain = NumberOfGuesses - 1;
-
-		var correctAnswers = ["Wolverine", "Beast", "Professor X", "Ice Man", "Storm", "Cyclops", "Jean Grey", "Colossus"];
-	var clue = ["Adamantium", "Smart Blue", "Mental Baldy", "Cool Breeze", "Ororo Munroe", "Too Hot Too Fly", "Man of Steel"];
-// 	var index = Math.floor(Math.random()*correctAnswers.length);
-	var ChosenWord = correctAnswers[Math.floor(Math.random()*correctAnswers.length)];
-	var puzzle = " "
-for (var i = 0; i < ChosenWord.length; i++) {
-		puzzle += "_ ";
-		// console.log(puzzle);
-	}
-	console.log(puzzle);
 
 // Start the game
+	// Start game on click
 	// Choose a Word
+		var puzzle = " "
+		var correctAnswers = ["wolverine", "Beast", "Professor X", "Ice Man", "Storm", "Cyclops", "Jean Grey", "Colossus"];
+		var chosenWord = correctAnswers[Math.floor(Math.random()*correctAnswers.length)];
+
+	//  Display a clue -- Use onclick function
 		var clue = ["Adamantium", "Smart Blue", "Mental Baldy", "Cool Breeze", "Ororo Munroe", "Too Hot Too Fly", "Man of Steel"];
-		var ChosenWord = correctAnswers[Math.floor(Math.random()*correctAnswers.length)];
 
-	// Display a clue
-			//Use onclick function
-
-
-	// Display objective -- number of letters
+	// Display objective -- show the current number of missing letters. (which should be all of them initially)
+		//Create a container using the 'empty-div id'
+		var puzzleDiv = document.getElementById("empty-div");
+		for (var i = 0; i < chosenWord.length; i++) {
+				  if (chosenWord[i] == " ") {
+				  	puzzle += "&nbsp;&nbsp;";
+				  }
+				  	else {
+				  		puzzle += "_ ";
+				  	}
+			}
+	// Create a element to display output in HTML
+	var newDiv = document.createElement("div");
+    newDiv.innerHTML = puzzle;
+     puzzleDiv.appendChild(newDiv);
+	console.log(puzzle);
+	console.log(chosenWord);
+	console.out;
 
 	//Issue number of Guesses -- set value of how many guesses the user has.
-
+	var numberOfGuesses = 10;
+	var	guessRemain = numberOfGuesses - 1;
 
 
 	// allow User to make a guess
 		// When a user types a letter it issues a guess
+		var win = 0;
+		var loss = 0;
+		
+		document.onkeyup = function (event) {
+			var guess = event.key;
+			var regexp = /[a-z]/gi;
+			if (!regexp.test(guess)) {
+				// console.log("Success");
+				console.log("please enter a letter");
+			}
+			else {
+				win = win + 1;
+			document.getElementById("wincnt").innerHTML = win;
+			console.log(guess);
+			console.log(win)
+			}
+			// for (var i = 0; i < chosenWord.length; i++) {
+			// 	  if (chosenWord[i] == guess[j]) {
+			// 	  	puzzle += "&nbsp;&nbsp;";
+			// 	  }
+			// 	  	else {
+			// 	  		puzzle += chosenWord[j];
+			// 	  	}
+			// if (guess[j] = chosenWord[j]) {
+			// 	puzzle += chosenWord[j]
+			}
+		
 
 		//Track number of guesses -- when a user makes a guess, eliminate one available guess
 
+		// Track already used characters -- When the user issues a guess, 
+		}
 
 
 
 
-	// for (var i = 0; NumberOfGuesses < 10; i++) {
-	// 	if (NumberOfGuesses < 10); {
+	// for (var i = 0; numberOfGuesses < 10; i++) {
+	// 	if (numberOfGuesses < 10); {
 	// 		alert(`You've used another guess, you have ${GuessRemain} remaining.`);
 	// 	}
 	// 		else {
@@ -52,11 +84,11 @@ for (var i = 0; i < ChosenWord.length; i++) {
 	// 		}
 	// 	};
 	// }
-	for (var i = 0; i < ChosenWord.length; i++) {
-		puzzle += "_";
-		console.out(puzzle)
+	// for (var i = 0; i < chosenWord.length; i++) {
+	// 	puzzle += "_";
+	// 	console.out(puzzle)
 
-	}
+	// }
 	// 	console.log(correctAnswers[i]);
 	// console.log(wordstosplit.split(""));
 	// }
