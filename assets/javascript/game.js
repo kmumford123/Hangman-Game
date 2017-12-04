@@ -54,26 +54,27 @@ var numberOfGuesses = 10;
 			if (!regexp.test(guess)) {
 				alert("please enter a letter");
 			}
-			else if {
-				var puzzle = [" "];
-				for (var k = 0; k < chosenWord.length; k++) {
-					if (chosenWord[k] === guess[k]) {
-						  	puzzle += guess[k];
+			// else if {
+			// 	for (var k = 0; k < chosenWord.length; k++) {
+			// 		if (chosenWord[k].toString() === guess) {
+			// 			  	puzzle += guess;
+			//   	}
+			//   }
+			// }
+			  	// else if {
+			  	// 	puzzle += "_ ";
+			  	// 	numberOfGuesses = numberOfGuesses - 1;
+			  	// 	}
 			  	}
-			  	else {
-			  		puzzle += "_ ";
-			  		numberOfGuesses = numberOfGuesses - 1;
-			  		}
-			  	}
-			  }	
-			}
-			else {
-				loss = loss + 1;
-				win = win + 1;
-				document.getElementById("wincnt").innerHTML = win;
-				document.getElementById("lsscnt").innerHTML = loss;
-			}
-		}
+			//   }	
+			// }
+			// else {
+			// 	loss = loss + 1;
+			// 	win = win + 1;
+			// 	document.getElementById("wincnt").innerHTML = win;
+			// 	document.getElementById("lsscnt").innerHTML = loss;
+			// }
+		// }
 			// for (var i = 0; i < chosenWord.length; i++) {
 			// 	  if (chosenWord[i] == guess[j]) {
 			// 	  	puzzle += "&nbsp;&nbsp;";
