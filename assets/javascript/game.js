@@ -1,23 +1,23 @@
-	// var correctAnswers = ["wolverine", "Beast", "Professor X", "Ice Man", "Storm", "Cyclops", "Jean Grey", "Colossus"];
-	// var puzzle = [" "];
-
 // Start the game
 	// Start game on click
 	// Choose a Word
-		// var puzzle = " "
 var correctAnswers = ["Wolverine", "Beast", "Professor X", "Ice Man", "Storm", "Cyclops", "Jean Grey", "Colossus"];
 var chosenWord = correctAnswers[Math.floor(Math.random()*correctAnswers.length)];
 
 //  Display a clue -- Use onclick function
-var clue = ["Adamantium", "Smart Blue", "Mental Baldy", "Cool Breeze", "Ororo Munroe", "Too Hot Too Fly", "Man of Steel"];
+var clue = ["Adamantium", "Smart Blue", "Mental Baldy", "Cool Breeze", "Ororo Munroe", "4 Your Eyes Only", "Too Hot Too Fly", "Man of Steel"];
 var clues = document.getElementById("clues"); 
-function clueCompare(){
 	for (var i = 0; i < correctAnswers.length; i++) {
-		 console.log(clue[i]);
+		 if (chosenWord === correctAnswers[i]) {
+		 	var clues = document.getElementById("clues");
+		 	var newCluesDiv = document.createElement("div");
+		    newCluesDiv.innerHTML = clue[i];
+		     clues.appendChild(newCluesDiv);
+		     console.log(clue[i]);
 			}
 		}
 	var newCluesDiv = document.createElement("div");
-    // newCluesDiv.innerHTML = clue;
+    // newCluesDiv.innerHTML = showClue;
      clues.appendChild(newCluesDiv);
 	// console.log(clue);
 	console.out;
