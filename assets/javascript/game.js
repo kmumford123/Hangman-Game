@@ -3,7 +3,7 @@
 	// Choose a Word
 var correctAnswers = ["Wolverine", "Beast", "Professor X", "Ice Man", "Storm", "Cyclops", "Jean Grey", "Colossus"];
 var chosenWord = correctAnswers[Math.floor(Math.random()*correctAnswers.length)];
-
+var gameword = chosenWord.length
 //  Display a clue
 var possibleClue = ["Adamantium", "Smart Blue", "Mental Baldy", "Cool Breeze", "Ororo Munroe", "4 Your Eyes Only", "Too Hot Too Fly", "Man of Steel"];
 var hint = ""
@@ -26,10 +26,10 @@ var clues = document.getElementById("clues");
 		if (chosenWord[j] === " ") {
 			  	puzzle += "&nbsp;&nbsp;";
 			  	}
-			  	else {
-			  		puzzle += "_ ";
-			  	}
-			  }	
+	  	else {
+	  		puzzle += "_ ";
+	  	}
+	  }	
 
 // Create a element to display output in HTML
 var newPuzzleDiv = document.createElement("div");
@@ -40,7 +40,7 @@ console.log(chosenWord);
 // console.out;
 
 //Issue number of Guesses -- set value of how many guesses the user has.
-var numberOfGuesses = 10;
+var guessesLeft = 10;
 // var	guessRemain = numberOfGuesses - 1;
 
 // allow User to make a guess
@@ -54,18 +54,37 @@ var numberOfGuesses = 10;
 			if (!regexp.test(guess)) {
 				alert("please enter a letter");
 			}
-			// else if {
-			// 	for (var k = 0; k < chosenWord.length; k++) {
-			// 		if (chosenWord[k].toString() === guess) {
-			// 			  	puzzle += guess;
-			//   	}
-			//   }
-			// }
-			  	// else if {
-			  	// 	puzzle += "_ ";
-			  	// 	numberOfGuesses = numberOfGuesses - 1;
-			  	// 	}
-			  	}
+			else if (regexp.test(guess)) { 
+				for (var k = 0; k < chosenWord.length; k++)
+			     		 if (chosenWord[k] === guess) {
+			        		puzzle[k] === guess;
+			        		console.log(puzzle);
+			        		if (puzzle === chosenWord) {
+			        				win = win + 1;
+			        				alert("Congratulations, now you're ready for Magneto!!!");
+					    			wins = wins + 1;
+					    			document.getElementById("wincnt").innerHTML = wins;
+			        			}
+			      			}
+			}
+		  	else {
+		    		puzzle += '_ ';
+		    		guessesLeft = guessesLeft - 1;
+		    		document.getElementById("gslftcnt").innerHTML = guessesLeft;
+		    		if (guessesLeft === 0) {
+		    			alert("Sorry, maybe you need more time in the Danger Room");
+		    			loss = loss + 1;
+		    			guessesLeft = guessesLeft + 11;
+		    			chosenWord;
+		    			document.getElementById("lsscnt").innerHTML = loss;
+		    			// chosenWord;
+		    			// !break;
+		    		}
+		  		}
+			};
+		// console.log(numberOfGuesses);
+		console.log(puzzle);
+		console.log(event);
 			//   }	
 			// }
 			// else {
