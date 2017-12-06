@@ -17,7 +17,7 @@ var clues = document.getElementById("clues");
 		 	var newCluesDiv = document.createElement("div");
 		    newCluesDiv.innerHTML = hint;
 		     clues.appendChild(newCluesDiv);
-		     console.log(hint);
+		     // console.log(hint);
 
 // Display objective -- show the current number of missing letters. (which should be all of them initially)
 	var puzzleDiv = document.getElementById("empty-div");
@@ -35,9 +35,7 @@ var clues = document.getElementById("clues");
 var newPuzzleDiv = document.createElement("div");
 newPuzzleDiv.innerHTML = puzzle;
 puzzleDiv.appendChild(newPuzzleDiv);
-// console.log(puzzle);
-// console.log(chosenWord);
-// console.out;
+
 
 //Issue number of Guesses -- set value of how many guesses the user has.
 var guessesLeft = 10;
@@ -48,24 +46,25 @@ var guessesLeft = 10;
 	var win = 0;
 	var loss = 0;
 	
+
 	document.onkeyup = function (event) {
 		var guess = event.key;
 		var regexp = /[a-z]/gi;
-		// console.log(guess);
 			if (!regexp.test(guess)) {
 				alert("please enter a letter");
 			}
 			else  { 
 				for (var k = 0; k < chosenWord.length; k++) {
-			     		if (guess === chosenWord[k].charAt()) {
-			     			// var puzzle = [" "]
-			        		puzzle[k] = guess;
+			     		if (guess === chosenWord[k]) {
+			     			var puzzle = [];
+			        		puzzle[k] = chosenWord[k];
 			        		// console.log(puzzle.charAt());
 			        		// console.log(guess);
 			        		newPuzzleDiv.innerHTML = puzzle;
 			        		console.log(puzzle);
 							puzzleDiv.appendChild(newPuzzleDiv);
-			        	// 	if (puzzle.toString() === chosenWord)
+
+			        	// 	if (puzzle.toString() = chosenWord) {
 			        	// 				 // { console.log(puzzle[k]);
 			        	// 			win = win + 1;
 			        	// 			alert("Congratulations, now you're ready for Magneto!!!");
@@ -113,7 +112,6 @@ var guessesLeft = 10;
 			// 	puzzle += chosenWord[j]
 			// }
 		
-// create a 
 		//Track number of guesses -- when a user makes a guess, eliminate one available guess
 
 		// Track already used characters -- When the user issues a guess, 
