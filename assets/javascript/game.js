@@ -1,9 +1,12 @@
 // Start the game
-	// Start game on click
+	// Start game on letter
 	// Choose a Word
-var correctAnswers = ["Wolverine", "Beast", "Professor X", "Ice Man", "Storm", "Cyclops", "Jean Grey", "Colossus"];
+var correctAnswers = ["wolverine", "beast", "professor x", "Ice Man", "Storm", "Cyclops", "Jean Grey", "Colossus"];
 var chosenWord = correctAnswers[Math.floor(Math.random()*correctAnswers.length)];
-var gameword = chosenWord.length
+var puzzle = [];
+// var puzzle = chosenWord.split("");
+// var gameword2 = chosenWord.split("");
+// var gameword3 = chosenWord.length("- ");
 //  Display a clue
 var possibleClue = ["Adamantium", "Smart Blue", "Mental Baldy", "Cool Breeze", "Ororo Munroe", "4 Your Eyes Only", "Too Hot Too Fly", "Man of Steel"];
 var hint = ""
@@ -19,21 +22,31 @@ var clues = document.getElementById("clues");
 		     clues.appendChild(newCluesDiv);
 		     // console.log(hint);
 
+var composers =["bach","mozart","beethoven","debussy","stravinsky"];
+var randomComposer = composers[Math.floor(Math.random() * composers.length)];
+var guessComposer = [];
+
+    // for (var i=0; i<chosenWord.length; i++){
+    // puzzle[i] = "-  ";
+
 // Display objective -- show the current number of missing letters. (which should be all of them initially)
 	var puzzleDiv = document.getElementById("empty-div");
-	var puzzle = [" "];
+	var puzzle = [];
+	var correctAnswers = ["Wolverine", "Beast", "Professor X", "Ice Man", "Storm", "Cyclops", "Jean Grey", "Colossus"];
+	var chosenWord = correctAnswers[Math.floor(Math.random()*correctAnswers.length)];
 	for (var j = 0; j < chosenWord.length; j++) {
-		if (chosenWord[j] === " ") {
-			  	puzzle += "&nbsp;&nbsp;";
-			  	}
-	  	else {
-	  		puzzle += "_ ";
+		// if (chosenWord[j] === " ") {
+			 //  	puzzle += "&nbsp;&nbsp;";
+			 //  	}
+	  	// else {
+	  		puzzle[j] = "- ";
+	  		// console.log(puzzle);
 	  	}
-	  }	
+	  // }	
 
 // Create a element to display output in HTML
 var newPuzzleDiv = document.createElement("div");
-newPuzzleDiv.innerHTML = puzzle;
+newPuzzleDiv.innerHTML = puzzle.join("");
 puzzleDiv.appendChild(newPuzzleDiv);
 
 
@@ -53,23 +66,31 @@ var guessesLeft = 10;
 			if (!regexp.test(guess)) {
 				alert("please enter a letter");
 			}
-			else  { 
+			else { 
 				for (var k = 0; k < chosenWord.length; k++) {
 			     		if (guess === chosenWord[k]) {
-			     			var puzzle = [];
+			     			// var puzzle = [];
 			        		puzzle[k] = chosenWord[k];
-			        		// console.log(puzzle.charAt());
+        					console.log(guess);
+        					console.log(puzzle);
+        					console.log(puzzle.join(""));
+			        		newPuzzleDiv.innerHTML = puzzle.join("");
+			        		puzzleDiv.appendChild(newPuzzleDiv);
+       //      }
+    // }
 			        		// console.log(guess);
-			        		newPuzzleDiv.innerHTML = puzzle;
-			        		console.log(puzzle);
-							puzzleDiv.appendChild(newPuzzleDiv);
+			    //     		newPuzzleDiv.innerHTML = puzzle;
+			    //     		console.log(puzzle);
+							// puzzleDiv.appendChild(newPuzzleDiv);
 
-			        	// 	if (puzzle.toString() = chosenWord) {
-			        	// 				 // { console.log(puzzle[k]);
-			        	// 			win = win + 1;
-			        	// 			alert("Congratulations, now you're ready for Magneto!!!");
-					    			// wins = wins + 1;
-					    			// document.getElementById("wincnt").innerHTML = wins;
+
+			        		if (puzzle.toString() == chosenWord) {
+			        					 // { console.log(puzzle[k]);
+			        				win = win + 1;
+			        				alert("Congratulations, now you're ready for Magneto!!!");
+					    			wins = wins + 1;
+					    			document.getElementById("wincnt").innerHTML = wins;
+						    		}
 			        			}
 			      			}
 			      		}
