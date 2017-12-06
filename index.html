@@ -3,33 +3,101 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/game.css">
+	 <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/grayscale.min.css" rel="stylesheet">
 </head>
-<body>
-	<h1>Please enter a letter and evolution will take a step forward.</h1>
+<body id="page-top">
 
-	<h4> Current Word</h2>
-	<br>
-	<div id="empty-div">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#download"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-	</div>
+    <!-- Intro Header -->
+    <header class="masthead">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h1 class="brand-heading">X-Men Hangman</h1>
+              <p class="intro-text">Evolution takes a step forward.
+                <br>K. Mumford 2017</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+     <section id="download" class="download-section content-section text-center">
+      <div class="container">
+        <div class="col-lg-8 mx-auto">
+          <div id="stat">
+				<h2>
+					Wrong Guesses Remaining: <span id="gslftcnt"> 10 </span>
+				</h2>
+				<p>
+					Win: <span id="wincnt"> 0 </span>
+					Loss: <span id="lsscnt"> 0 </span>	
+				</p>
+				<h2>Please enter a letter to begin</h2>
+            <p>Current Word</</p>
+            <div id="empty-div">
+			</div>
+			<br>
+			<div id="clues">
+				<h4>Hint: </h4>
+			</div>
+			<br>
+			<div id="stat">
+				<p>
+					Wrong Guesses Remaining: <span id="gslftcnt"> 10 </span>
+				</p>
+				<p>
+					Win: <span id="wincnt"> 0 </span>
+					Loss: <span id="lsscnt"> 0 </span>	
+				</p>
+			</div>
+        </div>
+      </div>
+    </section>
+   <footer>
+      <div class="container text-center">
+        <p>Copyright &copy; Khamel Mumford 2017</p>
+      </div>
+    </footer>
 	<br>
-	<div id="clues">
-		<h4>Hint: </h4>
-	</div>
-	<br>
-	<div id="stat">
-		<p>
-			Wrong Guesses Remaining: <span id="gslftcnt"> 10 </span>
-		</p>
-		<p>
-			Win: <span id="wincnt"> 0 </span>
-			Loss: <span id="lsscnt"> 0 </span>	
-		</p>
-	</div>
+	<!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Game JavaScript -->
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 	
 </body>

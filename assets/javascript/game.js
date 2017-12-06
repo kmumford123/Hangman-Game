@@ -1,7 +1,7 @@
 // Start the game
 	// Start game on letter
 	// Choose a Word
-var correctAnswers = ["wolverine", "beast", "professor x", "ice&nbsp;man", "storm", "cyclops", "jean grey", "colossus"];
+var correctAnswers = ["wolverine", "beast", "professorx", "iceman", "storm", "cyclops", "jeangrey", "colossus"];
 var chosenWord = correctAnswers[Math.floor(Math.random()*correctAnswers.length)];
 var puzzle = [];
 
