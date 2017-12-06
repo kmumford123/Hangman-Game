@@ -35,8 +35,8 @@ var clues = document.getElementById("clues");
 var newPuzzleDiv = document.createElement("div");
 newPuzzleDiv.innerHTML = puzzle;
 puzzleDiv.appendChild(newPuzzleDiv);
-console.log(puzzle);
-console.log(chosenWord);
+// console.log(puzzle);
+// console.log(chosenWord);
 // console.out;
 
 //Issue number of Guesses -- set value of how many guesses the user has.
@@ -51,24 +51,26 @@ var guessesLeft = 10;
 	document.onkeyup = function (event) {
 		var guess = event.key;
 		var regexp = /[a-z]/gi;
-		console.log(guess);
+		// console.log(guess);
 			if (!regexp.test(guess)) {
 				alert("please enter a letter");
 			}
 			else  { 
 				for (var k = 0; k < chosenWord.length; k++) {
-			     		if (chosenWord.charAt(k) === guess) {
+			     		if (guess === chosenWord[k].charAt()) {
+			     			// var puzzle = [" "]
 			        		puzzle[k] = guess;
-			        		// console.log(puzzle[k]);
+			        		// console.log(puzzle.charAt());
 			        		// console.log(guess);
-			        		if (puzzle[k] === chosenWord.charAt(k))
-			        					 { console.log(puzzle[k]);
-			        				newPuzzleDiv.innerHTML = puzzle[k];
-									puzzleDiv.appendChild(newPuzzleDiv);
-			        				win = win + 1;
-			        				alert("Congratulations, now you're ready for Magneto!!!");
-					    			wins = wins + 1;
-					    			document.getElementById("wincnt").innerHTML = wins;
+			        		newPuzzleDiv.innerHTML = puzzle;
+			        		console.log(puzzle);
+							puzzleDiv.appendChild(newPuzzleDiv);
+			        	// 	if (puzzle.toString() === chosenWord)
+			        	// 				 // { console.log(puzzle[k]);
+			        	// 			win = win + 1;
+			        	// 			alert("Congratulations, now you're ready for Magneto!!!");
+					    			// wins = wins + 1;
+					    			// document.getElementById("wincnt").innerHTML = wins;
 			        			}
 			      			}
 			      		}
@@ -87,10 +89,10 @@ var guessesLeft = 10;
 		   //  			// !break;
 		   //  		}
 		  	// 	}
-			};
+			// };
 		// console.log(numberOfGuesses);
-		console.log(puzzle);
-		console.log(event);
+		// console.log(puzzle);
+		// console.log(event);
 			//   }	
 			// }
 			// else {
