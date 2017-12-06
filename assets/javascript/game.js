@@ -51,36 +51,42 @@ var guessesLeft = 10;
 	document.onkeyup = function (event) {
 		var guess = event.key;
 		var regexp = /[a-z]/gi;
+		console.log(guess);
 			if (!regexp.test(guess)) {
 				alert("please enter a letter");
 			}
-			else if (regexp.test(guess)) { 
-				for (var k = 0; k < chosenWord.length; k++)
-			     		 if (chosenWord[k] === guess) {
-			        		puzzle[k] === guess;
-			        		console.log(puzzle);
-			        		if (puzzle === chosenWord) {
+			else  { 
+				for (var k = 0; k < chosenWord.length; k++) {
+			     		if (chosenWord.charAt(k) === guess) {
+			        		puzzle[k] = guess;
+			        		// console.log(puzzle[k]);
+			        		// console.log(guess);
+			        		if (puzzle[k] === chosenWord.charAt(k))
+			        					 { console.log(puzzle[k]);
+			        				newPuzzleDiv.innerHTML = puzzle[k];
+									puzzleDiv.appendChild(newPuzzleDiv);
 			        				win = win + 1;
 			        				alert("Congratulations, now you're ready for Magneto!!!");
 					    			wins = wins + 1;
 					    			document.getElementById("wincnt").innerHTML = wins;
 			        			}
 			      			}
+			      		}
 			}
-		  	else {
-		    		puzzle += '_ ';
-		    		guessesLeft = guessesLeft - 1;
-		    		document.getElementById("gslftcnt").innerHTML = guessesLeft;
-		    		if (guessesLeft === 0) {
-		    			alert("Sorry, maybe you need more time in the Danger Room");
-		    			loss = loss + 1;
-		    			guessesLeft = guessesLeft + 11;
-		    			chosenWord;
-		    			document.getElementById("lsscnt").innerHTML = loss;
-		    			// chosenWord;
-		    			// !break;
-		    		}
-		  		}
+		  	// else {
+		   //  		puzzle += '_ ';
+		   //  		guessesLeft = guessesLeft - 1;
+		   //  		document.getElementById("gslftcnt").innerHTML = guessesLeft;
+		   //  		if (guessesLeft === 0) {
+		   //  			alert("Sorry, maybe you need more time in the Danger Room");
+		   //  			loss = loss + 1;
+		   //  			guessesLeft = guessesLeft + 11;
+		   //  			chosenWord;
+		   //  			document.getElementById("lsscnt").innerHTML = loss;
+		   //  			// chosenWord;
+		   //  			// !break;
+		   //  		}
+		  	// 	}
 			};
 		// console.log(numberOfGuesses);
 		console.log(puzzle);
