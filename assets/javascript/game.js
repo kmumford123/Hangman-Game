@@ -55,7 +55,7 @@ var guessesLeft = 10;
 	// When a user types a letter it issues a guess
 	var win = 0;
 	var loss = 0;
-
+	var missedGuess = (guessesLeft - 1);
 	document.onkeyup = function (event) {
 		var guess = event.key;
 		var regexp = /[a-z]/gi;
@@ -79,12 +79,12 @@ var guessesLeft = 10;
 								    			// var wins = win + 1;
 								    			document.getElementById("wincnt").innerHTML = win;
 								    			alert("Congratulations, now you're ready for Magneto!!!");
-								    			restart(reset);
+								    			restart.reset();
 									    		}
 									    	}
 						else {
 							//Issue number of Guesses -- set value of how many guesses the user has.
-							guessesLeft = guessesLeft - 1;
+							guessesLeft = missedGuess;
 							document.getElementById("gslftcnt").innerHTML = guessesLeft;
 								if (guessesLeft < 0) {
 									alert("Sorry, maybe you need more time in the Danger Room");
