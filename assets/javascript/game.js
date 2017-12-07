@@ -5,6 +5,21 @@ var correctAnswers = ["wolverine", "beast", "professorx", "iceman", "storm", "cy
 var chosenWord = correctAnswers[Math.floor(Math.random()*correctAnswers.length)];
 var puzzle = [];
 
+// Function to reset the game
+var restart = function (reset) {
+	var clue = document.getElementById("clues"); 
+	for (var i = 0; i < correctAnswers.length; i++) {
+		 if (chosenWord === correctAnswers[i]) {
+		 	hint = possibleClue[i];
+			}
+		}
+var clues = document.getElementById("clues");
+		 	var newCluesDiv = document.createElement("div");
+		    newCluesDiv.innerHTML = hint;
+		     clues.appendChild(newCluesDiv);
+		     // console.log(hint);
+}
+
 //  Display a clue
 var possibleClue = ["Adamantium", "Smart Blue", "Mental Baldy", "Cool Breeze", "Ororo Munroe", "4 Your Eyes Only", "Too Hot Too Fly", "Man of Steel"];
 var hint = ""
@@ -54,33 +69,32 @@ var guessesLeft = 10;
 				for (var k = 0; k < chosenWord.length; k++) {
 			     		if (guess === chosenWord[k]) {
 					        		puzzle[k] = chosenWord[k];
-		        					console.log(guess);
-		        					console.log(puzzle);
-		        					console.log(puzzle.join(""));
 					        		newPuzzleDiv.innerHTML = puzzle.join("");
 					        		puzzleDiv.appendChild(newPuzzleDiv);
 					        		// guessesLeft = guessesLeft + 1;
 
+					        		//Once the game is won, congratulate the player, calculate wins, restart the game
 						        		if (puzzle.join("") === chosenWord) {
 						        				win = win + 1;
-						        				alert("Congratulations, now you're ready for Magneto!!!");
-								    			wins = wins + 1;
-								    			document.getElementById("wincnt").innerHTML = wins;
+								    			// var wins = win + 1;
+								    			document.getElementById("wincnt").innerHTML = win;
+								    			alert("Congratulations, now you're ready for Magneto!!!");
+								    			restart(reset);
 									    		}
 									    	}
-			    		else {
-						//Issue number of Guesses -- set value of how many guesses the user has.
-						guessesLeft = guessesLeft --;
-						document.getElementById("gslftcnt").innerHTML = guessesLeft;
-							if (guessesLeft < 0) {
-								alert("Sorry, maybe you need more time in the Danger Room");
-								loss = loss + 1;
-								guessesLeft = guessesLeft + 11;
-								chosenWord;
-								document.getElementById("lsscnt").innerHTML = loss;
-						
-								}
-						}
-			      	}
+						else {
+							//Issue number of Guesses -- set value of how many guesses the user has.
+							guessesLeft = guessesLeft - 1;
+							document.getElementById("gslftcnt").innerHTML = guessesLeft;
+								if (guessesLeft < 0) {
+									alert("Sorry, maybe you need more time in the Danger Room");
+									loss = loss + 1;
+									guessesLeft = guessesLeft + 11;
+									chosenWord;
+									document.getElementById("lsscnt").innerHTML = loss;
+							
+									}
+							}		
+			      			}
 			      }
 		      };
